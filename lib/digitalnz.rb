@@ -38,3 +38,4 @@ require('cgi')
 # Local requires.
 require_local('digitalnz/search')
 require_local('digitalnz/record')
+require_local('digitalnz/version')
