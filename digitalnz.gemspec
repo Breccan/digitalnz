@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Harton"]
-  s.date = %q{2009-03-19}
+  s.date = %q{2009-03-20}
   s.email = %q{jamesotron@gmail.com}
   s.extra_rdoc_files = ["README.rdoc"]
   s.files = ["README.rdoc", "Rakefile", "lib/digitalnz", "lib/digitalnz/record.rb", "lib/digitalnz/search.rb", "lib/digitalnz/version.rb", "lib/digitalnz.rb"]
