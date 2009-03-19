@@ -16,10 +16,8 @@ module DigitalNZ
     DigitalNZ::Search.new(params)
   end
 
-  def self.record(params)
-    params = { :record_id => params.to_s } unless params.is_a?(Hash)
-    params[:api_key]==@@api_key
-    DigitalNZ::Record.new(params)
+  def self.record(url)
+    DigitalNZ::Record.new(url)
   end
 
 end

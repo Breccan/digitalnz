@@ -7,8 +7,10 @@ class DigitalNZ::Search
       query += [ k.to_s + '=' + CGI.escape(v) ]
     end
     url += query * "&"
+    puts url
     res = fetch(url)
     res = JSON.parse(res.body)
+    @orig = res
     @num_results_requestes = res['num_results_requested'] || nil
     @count = res['result_count'] || nil
     @start = res['start'] || nil
@@ -34,10 +36,14 @@ class DigitalNZ::Search
     @results
   end
 
+  def to_yaml
+    @orig.to_yaml
+  end
 
   class Result 
 
     def initialize(args)
+      @args = args
       @category = args['category'] if args['category']
       @title = args['title'] if args['title']
       @content_provider = args['content_provider'] if args['content_provider']
@@ -45,10 +51,10 @@ class DigitalNZ::Search
       @syndication_date = DateTime.parse(args['syndication_date']) if args['syndication_date'] and args['syndication_date'].size
       @description = args['description'] if args['description']
       @id = args['id'] if args['id']
-      @metadata = DigitalNZ.record(args['metadata_url']) if args['metadata_url']
       @source_url = args['source_url'] if args['source_url']
       @display_url = args['display_url'] if args['display_url']
       @thumbnail_url = args['thumbnail_url'] if args['thumbnail_url']
+      @metadata_url = args['metadata_url'] if args['metadata_url']
     end
 
     def category
@@ -84,7 +90,11 @@ class DigitalNZ::Search
     end
 
     def metadata
-      @metadata
+      if !@metadata.nil?
+        @metadata
+      else 
+        @metadata = DigitalNZ.record(@metadata_url) if @metadata_url
+      end
     end
 
     def source_url
@@ -93,6 +103,10 @@ class DigitalNZ::Search
 
     def thumbnail_url
       @thumbnail_url
+    end
+
+    def to_yaml
+      @args.to_yaml
     end
 
   end
