@@ -15,7 +15,8 @@ spec = Gem::Specification.new do |s|
   s.summary          = "A small gem to interface with the DigitalNZ API"
   s.author           = 'James Harton'
   s.email            = 'jamesotron@gmail.com'
-  s.homepage         = 'http://www.helicopter.geek.nz/'
+  s.homepage         = 'http://github.com/jamesotron/digitalnz/tree/master'
+  s.rubyforge_project = 'digitalnz'
   s.files            = %w(README.rdoc Rakefile) + Dir.glob("{lib,test}/**/*")
   
 end
