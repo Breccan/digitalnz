@@ -11,11 +11,12 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.rdoc"]
   s.files = ["README.rdoc", "Rakefile", "lib/digitalnz", "lib/digitalnz/search.rb", "lib/digitalnz/record.rb", "lib/digitalnz/version.rb", "lib/digitalnz.rb"]
   s.has_rdoc = true
-  s.homepage = %q{http://www.helicopter.geek.nz/}
+  s.homepage = %q{http://github.com/jamesotron/digitalnz/tree/master}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{A small gem to interface with the DigitalNZ API}
+  s.rubyforge_project = %q{digitalnz}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
