@@ -14,7 +14,7 @@ class DigitalNZ::Search
     @num_results_requestes = res['num_results_requested'] || nil
     @count = res['result_count'] || nil
     @start = res['start'] || nil
-    @results = []
+    @results = Array.new
     for r in res['results']
       @results << Result.new(r)
     end
@@ -107,6 +107,10 @@ class DigitalNZ::Search
 
     def to_yaml
       @args.to_yaml
+    end
+
+    def to_json
+      @args.to_json
     end
 
   end
