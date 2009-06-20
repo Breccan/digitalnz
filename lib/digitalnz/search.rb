@@ -1,7 +1,11 @@
 class DigitalNZ::Search
-
-  def initialize(params) 
-    url = 'http://api.digitalnz.org/records/v1.json/?'
+  #Takes a hash of params, and an optional custom_search title
+  def initialize(params, custom_search = nil) 
+    if custom_search
+      url = "http://api.digitalnz.org/custom_searches/v1/#{custom_search}.json/?"
+    else
+      url = 'http://api.digitalnz.org/records/v1.json/?'
+    end
     query = []
     for k,v in params
       query += [ k.to_s + '=' + CGI.escape(v) ]
